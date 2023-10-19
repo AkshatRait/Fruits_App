@@ -1,5 +1,4 @@
 import axios from 'axios';
-import React from 'react'
 import { useState, useEffect } from "react"
 
 const Fruits = () => {
@@ -8,7 +7,7 @@ const Fruits = () => {
     useEffect(()=>{
         axios({
             method: "GET",
-            url: "http://localhost:3000/fruits",
+            url: "/server/fruits",
         }).then((res)=>{
             console.log(res.data);
             setFruits(res.data)
@@ -25,6 +24,7 @@ console.log(fruits);
                 <p>{fruit.name}</p>
                 <p>{fruit.color}</p>
                 <p>{fruit.readyToEat}</p>
+                <div>{fruit.age}</div>
             </li>
         })}
         </ul>
